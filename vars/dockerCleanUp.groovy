@@ -1,5 +1,5 @@
 #!groovy
 
 def call(env) {
-    sh "docker-compose --no-ansi -p " + new uniqueComposeId(env) + " down --rmi local -v"
+    sh "docker-compose --no-ansi -p " + uniqueComposeId(env) + " down --rmi local -v"
 }
