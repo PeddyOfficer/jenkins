@@ -9,7 +9,7 @@ def call(env, mavenCommand) {
     final String exitCode = sh(returnStdout: true, script: "$docker").trim()
 
     //final int exitCode = sh(returnStdout: true, script: "docker inspect $name --format={{.State.ExitCode}}").trim()
-    echo "EXIT CODE = $exitCode"
+    println("EXIT CODE: $exitCode")
     //if(!exitCode.equalsIgnoreCase("0")) {
     //    throw new Exception("Maven build failed")
     //}
