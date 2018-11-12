@@ -3,7 +3,7 @@
 def call(env, mavenCommand) {
     final String composeId = uniqueComposeId(env)
 
-    final String docker = "CURRENT_UID=`id -u` CURRENT_GID=`id -g` MVN_CMD='$mavenCommand' docker-compose -f docker-compose.yml --no-ansi -p $composeId up --exit-code-from mvn"
+    final String docker = "CURRENT_UID=`id -u` CURRENT_GID=`id -g` MVN_CMD='$mavenCommand' docker-compose -f docker-compose.yml --no-ansi -p $composeId up --exit-code-from mvn mvn"
     final int exitCode = sh(returnStdout: true, script: "$docker").trim()
 
     if(exitCode != 0) {
